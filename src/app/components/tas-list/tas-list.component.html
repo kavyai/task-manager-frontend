@@ -1,0 +1,42 @@
+<div class ="page">
+    <div class="heading">
+        <h2>My Taks</h2>
+        <a routerLink="/add" class ="add-button">+Add Task</a>
+        <p *ngIf="errorMessage">{{errorMessage}}</p>
+
+        <p *ngIf="tasks.length === 0" && !errorMessage>
+            No Task available
+        </p>
+        <div *ngIf="selectedTask">
+  <h3>Task Details</h3>
+  <p>ID: {{ selectedTask.id }}</p>
+  <p>Title: {{ selectedTask.title }}</p>
+  <p>Description: {{ selectedTask.description }}</p>
+  <p>Completed: {{ selectedTask.completed }}</p>
+</div>
+        <div class = "task-card" *ngFor="let task of tasks">
+            <div class="task-details">
+<h3 [class.completed]="task.completed">{{task.title}}</h3>
+
+<p>{{task.description}}</p>
+<span [class.done]="task.completed">{{task.completed?'Completed':'Pending'}}</span>
+            </div>
+
+            <div class="actions">
+                <button type="button" (click)="markCompleted(task)">
+                    {{task.completed?'Mark Pending':'Complete'}}
+                </button>
+                <button type="button" (click)="getTaskById(task.id!)">
+  View Details
+</button>
+<button type="button" [routerLink]="['/add']"
+        [queryParams]="{id: task.id}">
+  Edit
+</button>
+<button type="button" class ="delete-button" (click)="deleteTask(task.id)">Delete</button>
+
+            </div>
+        </div>
+
+    </div>
+    </div>

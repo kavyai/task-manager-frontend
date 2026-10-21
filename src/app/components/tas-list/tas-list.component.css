@@ -1,0 +1,72 @@
+.page {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.task-details {
+  overflow-wrap: anywhere;
+}
+
+.task-details h3 {
+  margin-top: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.done {
+  color: #16803d;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+button,
+.add-button {
+  padding: 9px 14px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: #2563eb;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.delete-button {
+  background: #dc2626;
+}
+
+.error {
+  color: #dc2626;
+}
+
+@media (max-width: 550px) {
+  .task-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

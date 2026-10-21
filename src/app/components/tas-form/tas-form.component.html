@@ -1,0 +1,21 @@
+<div class="form-container">
+  <h2>{{ editingId === null ? 'Add New Task' : 'Edit Task' }}</h2>
+
+  <form (ngSubmit)="saveTask()" #taskForm="ngForm">
+    <label for="title">Title</label>
+    <input id="title" name="title"
+           [(ngModel)]="task.title" required />
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description"
+              [(ngModel)]="task.description"></textarea>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <button type="submit" [disabled]="taskForm.invalid">
+      {{ editingId === null ? 'Save Task' : 'Update Task' }}
+    </button>
+
+    <a routerLink="/tasks" class="cancel-button">Cancel</a>
+  </form>
+</div>
